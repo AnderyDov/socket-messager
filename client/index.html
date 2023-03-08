@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Socket.IO chat</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="main">
+            <aside>
+                <pre class="username" id="username"></pre>
+
+                <pre class="scrollable" id="rooms"></pre>
+
+                <form class="form form--small" id="room">
+                    <input
+                        type="text"
+                        placeholder="room name"
+                        autocomplete="off"
+                    />
+                    <button type="submit">join</button>
+                </form>
+            </aside>
+
+            <article>
+                <pre class="scrollable" id="messages"></pre>
+
+                <pre class="typing" id="typingStatus"></pre>
+
+                <form class="form" id="messageForm">
+                    <input
+                        id="inputMessage"
+                        type="text"
+                        placeholder="your message here"
+                        autocomplete="off"
+                    />
+                    <button type="submit">send</button>
+                </form>
+            </article>
+        </main>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
