@@ -15,7 +15,12 @@ app.use(express.static('./client'));
 
 io.on('connection', (socket) => {
     socket.username = Moniker.choose();
-    socket.emit('set username', socket.username);
+    socket.emit('set username', `${socket.username} теперь это ваше имя`);
+
+    socket.broadcast.emit(
+        'user join',
+        `${socket.username} присоеденился к чату`,
+    );
 
     socket.on('chat message', (msg) => {
         io.emit('chat message', msg);

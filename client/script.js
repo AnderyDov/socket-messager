@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputMessage = document.getElementById('inputMessage');
     const messages = document.getElementById('messages');
 
+    function addMessage(msg) {
+        const item = document.createElement('li');
+
+        item.innerHTML = msg;
+        messages.appendChild(item);
+        messages.scrollTo(0, messages.scrollHeight);
+    }
+
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
         if (inputMessage.value) {
@@ -15,14 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     socket.on('set username', (msg) => {
+        addMessage(msg);
         username.innerHTML = msg;
     });
 
-    socket.on('chat message', (msg) => {
-        const item = document.createElement('li');
+    socket.on('user join', addMessage);
 
-        item.innerHTML = msg;
-        messages.appendChild(item);
-        messages.scrollTo(0, messages.scrollHeight);
-    });
+    socket.on('chat message', addMessage);
 });
