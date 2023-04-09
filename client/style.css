@@ -108,10 +108,27 @@ input {
     padding: 0;
 }
 #messages > li {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
+    margin: 0.2rem 0;
     border-radius: 4px;
     overflow-wrap: break-word;
+    animation-name: tututu;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    transform-origin: left;
 }
-#messages > li:nth-child(odd) {
+#messages > li {
     background: #e9e9e9;
 }
+
+@keyframes tututu {
+    0% {
+        opacity: 0;
+        scale: 0 1;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+/* если не путаю, мoжно на новый компонент повесить анимацыю  */

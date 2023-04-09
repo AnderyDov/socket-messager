@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageForm = document.getElementById('messageForm');
     const inputMessage = document.getElementById('inputMessage');
     const messages = document.getElementById('messages');
+    const div = document.querySelector('.div');
 
     // Функция доюавления сообщения на страницу, при добавлении сообщения блок с сообщениями прокручивается до самого нзу
     function addMessage(msg) {
